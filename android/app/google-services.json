@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "818847309984",
+    "project_id": "kitchencatalogue",
+    "storage_bucket": "kitchencatalogue.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818847309984:android:e70e0be47bd3f2b4f3e9c5",
+        "android_client_info": {
+          "package_name": "com.example.hello_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7bwXp8u42HIAXbE1DEu6qLwYFK1HFR4k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818847309984:android:1139773daf829d99f3e9c5",
+        "android_client_info": {
+          "package_name": "com.example.kitchen_catalogue"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7bwXp8u42HIAXbE1DEu6qLwYFK1HFR4k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
