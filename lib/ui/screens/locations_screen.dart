@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import '../../services/firestore_service.dart';
 import 'location_detail_screen.dart';
 
-// ⭐ ADD THIS IMPORT
-import 'add_item_screen.dart';
-
 class LocationsScreen extends StatelessWidget {
   LocationsScreen({super.key});
 
@@ -69,30 +66,11 @@ class LocationsScreen extends StatelessWidget {
                       ),
                     ),
 
-                    // ⭐ Add Item button for each location
-                    subtitle: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => AddItemScreen(
-                              locationId: doc.id,
-                            ),
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        "Add Item",
-                        style: TextStyle(
-                          color: Color(0xFF2563EB),
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
+                    // ⭐ Removed the Add Item button here
 
                     trailing: const Icon(Icons.chevron_right_rounded),
 
-                    // Existing navigation to Location Detail
+                    // ⭐ Only navigation into the location remains
                     onTap: () {
                       Navigator.push(
                         context,
@@ -112,7 +90,7 @@ class LocationsScreen extends StatelessWidget {
         ),
       ),
 
-      // Existing Add Location button
+      // Add Location button stays
       floatingActionButton: FloatingActionButton(
         onPressed: () => _showAddLocationDialog(context),
         child: const Icon(Icons.add),

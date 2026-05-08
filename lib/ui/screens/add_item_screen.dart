@@ -40,7 +40,9 @@ class _AddItemScreenState extends State<AddItemScreen> {
   }
 
   Future<void> _saveItem() async {
-    if (_nameController.text.trim().isEmpty || _expiration == null) {
+    final name = _nameController.text.trim();
+
+    if (name.isEmpty || _expiration == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Please enter a name and expiration date")),
       );
@@ -49,6 +51,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
 
     final uid = FirebaseAuth.instance.currentUser!.uid;
 
+    // 1️⃣ Save item to the selected location
     await FirebaseFirestore.instance
         .collection('users')
         .doc(uid)
@@ -56,11 +59,23 @@ class _AddItemScreenState extends State<AddItemScreen> {
         .doc(widget.locationId)
         .collection('items')
         .add({
-      'name': _nameController.text.trim(),
+      'name': name,
       'expiration': _expiration,
       'createdAt': FieldValue.serverTimestamp(),
     });
 
+    // 2️⃣ Remove from scanned items list (known_items)
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(uid)
+        .collection('known_items')
+        .doc(name.toLowerCase())
+        .delete()
+        .catchError((_) {
+          // If the item wasn't in known_items, ignore the error
+        });
+
+    // 3️⃣ Close screen
     Navigator.pop(context);
   }
 
@@ -88,7 +103,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                       }
                     },
                     decoration: const InputDecoration(
-                      labelText: "Select Known Item",
+                      labelText: "Select Scanned Item",
                     ),
                   ),
 
