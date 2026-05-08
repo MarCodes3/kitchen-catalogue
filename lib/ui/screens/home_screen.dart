@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:async';
-
+import 'package:kitchen_catalogue/ui/screens/notification_settings_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,17 +22,32 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF1F5F9),
       appBar: AppBar(
-        title: const Text(
-          "Home",
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.w600,
-            color: Color(0xFF0F172A),
+  title: const Text(
+    "Home",
+    style: TextStyle(
+      fontSize: 22,
+      fontWeight: FontWeight.w600,
+      color: Color(0xFF0F172A),
+    ),
+  ),
+  backgroundColor: const Color(0xFFF1F5F9),
+  elevation: 0,
+  actions: [
+    IconButton(
+      icon: const Icon(Icons.notifications, color: Color(0xFF0F172A)),
+      tooltip: "Notification Settings",
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => const NotificationSettingsScreen(),
           ),
-        ),
-        backgroundColor: const Color(0xFFF1F5F9),
-        elevation: 0,
-      ),
+        );
+      },
+    ),
+  ],
+),
+
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
             .collection('users')
