@@ -42,6 +42,25 @@
           "other_platform_oauth_client": []
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818847309984:android:f44f61aec416cc98f3e9c5",
+        "android_client_info": {
+          "package_name": "com.marcodes.kitchen_catalogue"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7bwXp8u42HIAXbE1DEu6qLwYFK1HFR4k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
     }
   ],
   "configuration_version": "1"
